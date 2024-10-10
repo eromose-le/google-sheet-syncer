@@ -3,10 +3,21 @@ import { formatDate } from "@/app/utils/index.";
 import { google, sheets_v4 } from "googleapis";
 import { NextResponse } from "next/server";
 
+// Decode the base64-encoded Google service account key
+const serviceAccountKey = Buffer.from(
+  process.env.GOOGLE_SERVICE_ACCOUNT_KEY_BASE64 || "",
+  "base64"
+).toString("utf-8");
+
 const auth = new google.auth.GoogleAuth({
-  keyFile: process.env.NEXT_PUBLIC_GOOGLE_CREDIENTAIL_PATH, // Path to your service account key
+  credentials: JSON.parse(serviceAccountKey),
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
+
+console.log(
+  "GOOGLE_SERVICE_ACCOUNT_KEY_BASE64",
+  process.env.GOOGLE_SERVICE_ACCOUNT_KEY_BASE64
+);
 
 const PUBLIC_GOOGLE_SHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID;
 const PUBLIC_GOOGLE_SHEET_RANGE = process.env.NEXT_PUBLIC_GOOGLE_SHEET_RANGE;
