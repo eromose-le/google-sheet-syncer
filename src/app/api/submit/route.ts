@@ -14,11 +14,6 @@ const auth = new google.auth.GoogleAuth({
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
-console.log(
-  "GOOGLE_SERVICE_ACCOUNT_KEY_BASE64",
-  process.env.GOOGLE_SERVICE_ACCOUNT_KEY_BASE64
-);
-
 const PUBLIC_GOOGLE_SHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID;
 const PUBLIC_GOOGLE_SHEET_RANGE = process.env.NEXT_PUBLIC_GOOGLE_SHEET_RANGE;
 
