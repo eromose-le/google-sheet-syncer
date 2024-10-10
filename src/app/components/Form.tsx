@@ -1,9 +1,16 @@
 import React, { FC, useState, ChangeEvent, FormEvent } from "react";
 import { FormData } from "../types";
-import { redirectToCreateAccount, redirectToCreatePage, redirectToForgotPassword, redirectToLogin } from "../utils/index.";
+import {
+  redirectToCreateAccount,
+  redirectToCreatePage,
+  redirectToForgotPassword,
+  redirectToLogin,
+} from "../utils/index.";
 import Image from "next/image";
 
-interface FormProps {}
+interface FormProps {
+  value?: string;
+}
 const Form: FC<FormProps> = () => {
   const [show, setShow] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
