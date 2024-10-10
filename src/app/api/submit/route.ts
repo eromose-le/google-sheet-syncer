@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       { message: "Form data successfully submitted!" },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error appending data to Google Sheets", error);
     return NextResponse.json(
       { error: "Something went wrong" },
